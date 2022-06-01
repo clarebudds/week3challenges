@@ -1,9 +1,9 @@
 require 'sinatra/base'
-require 'sinatra.reloader'
+require 'sinatra/reloader'
 
 class Battle < Sinatra::Base
   configure :development do
-    register Sinatra:: Reloader
+    register Sinatra::Reloader
   end 
 
   get '/' do

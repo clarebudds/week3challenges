@@ -1,6 +1,6 @@
 require 'player'
 
-RSpec.describe Player do
+describe Player do
   subject(:clare) { Player.new('Clare') }
   subject(:rebecca) { Player.new('Rebecca') }
 
@@ -15,7 +15,7 @@ RSpec.describe Player do
       expect(clare.hit_points).to eq described_class::DEFAULT_HIT_POINTS
     end
   end
-  
+
   describe '#attack' do
     it 'damages the player' do
       expect(rebecca).to receive(:receive_damage)
@@ -24,8 +24,12 @@ RSpec.describe Player do
   end
 
   describe '#receive_damage' do
-    it 'reduces the players hit points' do
-      expect { clare.receive_damage }.to change { clare.hit _points }.by(-10)
+    it 'reduces the player hit points' do
+      expect { clare.receive_damage }.to change { clare.hit_points }.by(-10)
     end
   end
-end
+ end
+
+
+
+

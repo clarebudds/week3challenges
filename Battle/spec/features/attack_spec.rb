@@ -7,3 +7,4 @@ feature 'Attacking' do
     expect(page).to have_content 'Rebecca: 50HP'
   end
 end
+

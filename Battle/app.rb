@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/game'
 require './lib/player'
-require './lib/attack'
+
 
 class Battle < Sinatra::Base
   configure :development do
@@ -29,16 +29,9 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = $game
-    # @game.attack(@game.player_2)
-    # @game.attack(@game.opponent_of(@game.current_turn))
-    # @game.switch_turns
-    Attack.run(@game.opponent_of(@game.current_turn))
+    @game.attack(@game.player_2)
+    @game.switch_turns
     erb :attack
-  end
-
-  post 'switch-turns' do
-    $game.switch_turns
-    redirect('/play')
   end
 
   run! if app_file == $0

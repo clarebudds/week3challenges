@@ -14,20 +14,16 @@ class Game
     @players.last
   end
 
-  # def attack(player)
-  #   player.receive_damage
-  # end
+  def attack(player)
+    player.receive_damage
+  end
 
   def switch_turns
     @current_turn = opponent_of(current_turn)
   end
 
-  # private
+  private
 
   def opponent_of(the_players)
     @players.select { |player| player != the_player }.first
   end
-
-  private
-  attr_reader :players
-end
